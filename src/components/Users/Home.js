@@ -8,7 +8,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("/api/profile/", {
+      .get(`${process.env.REACT_APP_BASE_URL}/api/users/profile/`, {
         headers: { Authorization: `Token ${localStorage.getItem("token")}` },
       })
       .then((response) => {
@@ -20,7 +20,7 @@ const Home = () => {
   const handleLogout = () => {
     axios
       .post(
-        "/api/logout/",
+        `${process.env.REACT_APP_BASE_URL}/api/users/logout/`,
         {},
         {
           headers: { Authorization: `Token ${localStorage.getItem("token")}` },
